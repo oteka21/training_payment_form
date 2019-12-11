@@ -9,60 +9,62 @@
   <title>Payment</title>
 </head>
 <body>
-  <h1>Great that's £124.97!</h1>
-  <form class="container" action="#" id="form-payment">
-    <div class="item">
-      <label class="radio-container">
-        <input type="radio" name="payment-method" value="paypal">
-        <span class="checkmark" data-text="PayPal"></span>
-      </label>
-      <div class="image">
-        <img src="./images/paypal.jpg" alt="Paypal logo">
-      </div>
-    </div>
-    <div class="panel">
-      <div class="panel-item">
-        <button class="paypal-chackout">Paypal checkout</button>
-      </div>
-    </div>
-    <div class="item">
-      <label class="radio-container">
-        <input type="radio" name="payment-method" value='credit' >
-        <span class="checkmark" data-text="Debit/credit card"></span>
-      </label>
-      <div class="image">
-        <div class="visa credit-card"></div>
-        <div class="master-card credit-card"></div>
-        <div class="master-card credit-card ame-express"></div>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="panel-item">
-      <label class="card-number-input">
-        <span>Card number</span>
-        <input type="number" placeholder="4111 1111 1111 1111" id="credit-card-number" />
-      </label>
-      </div>
-      <div class="panel-item">
-        <label class="card-expire">
-          <span>Expiry</span>
-          <input type="text" placeholder="MM/YY" id="credit-card-expire" />
+  <div class="main-container">
+    <h1>Great that's £124.97!</h1>
+    <form class="container" action="#" id="form-payment">
+      <div class="item first-item">
+        <label class="radio-container">
+          <input type="radio" name="payment-method" value="paypal">
+          <span class="checkmark" data-text="PayPal"></span>
         </label>
-        <label class="card-cvc">
-          <span>CVC</span>
-          <input type="number" placeholder="023" id="credit-card-cvc" />
-        </label>
-        <svg class="exclamation" viewBox="0 0 100 100">
-          <use xlink:href="./images/exclamation.svg#Capa_1"></use>
-        </svg>
+        <div class="image">
+          <img src="./images/paypal.jpg" alt="Paypal logo">
         </div>
-    </div>
-  </form>
-  <button type="submit" form="form-payment" class="pay-button">
-    <svg class="padlock" viewBox="0 0 100 100">
-      <use xlink:href="./images/lock.svg#Layer_1"></use>
-    </svg>
-    Finish and pay</button>
+      </div>
+      <div class="panel">
+        <div class="panel-item">
+          <button class="paypal-chackout">Paypal checkout</button>
+        </div>
+      </div>
+      <div class="item last-item" id="card-item-toggle-border">
+        <label class="radio-container">
+          <input type="radio" name="payment-method" value='credit' id='credit-card'>
+          <span class="checkmark" data-text="Debit/credit card"></span>
+        </label>
+        <div class="image">
+          <div class="visa credit-card"></div>
+          <div class="master-card credit-card"></div>
+          <div class="master-card credit-card ame-express"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-item">
+        <label class="card-number-input">
+          <span>Card number</span>
+          <input type="number" placeholder="4111 1111 1111 1111" id="credit-card-number" />
+        </label>
+        </div>
+        <div class="panel-item last-item">
+          <label class="card-expire">
+            <span>Expiry</span>
+            <input type="text" placeholder="MM/YY" id="credit-card-expire" />
+          </label>
+          <label class="card-cvc">
+            <span>CVC</span>
+            <input type="number" placeholder="023" id="credit-card-cvc" />
+          </label>
+          <svg class="exclamation" viewBox="0 0 100 100">
+            <use xlink:href="./images/exclamation.svg#Capa_1"></use>
+          </svg>
+          </div>
+      </div>
+    </form>
+    <button type="submit" form="form-payment" class="pay-button">
+      <svg class="padlock" viewBox="0 0 100 100">
+        <use xlink:href="./images/lock.svg#Layer_1"></use>
+      </svg>
+      Finish and pay</button>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="./js/index.js"></script>
 </body>

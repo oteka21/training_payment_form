@@ -40,10 +40,14 @@ h1{
   height: base.$item-height;
   position: relative;
 }
-.container{
+
+.main-container{
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin:8% auto;
+}
+.container{
+  width: 100%;
   border-radius: 3px;
 }
 
@@ -51,6 +55,16 @@ h1{
   @extend %block;
   background: base.$tertiary-color;
   border-bottom: 1px solid base.$fourth-color;
+  cursor: pointer;
+}
+
+.item:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.last-item {
+  border-bottom: 0;
+  border-radius: 0 0 4px 4px;
 }
 
 .form-label{
@@ -71,9 +85,24 @@ h1{
   right: 20px;
 
   & img{
+    display: inline-block;
     width: 30px;
     height: 100%;
     object-fit: cover;
+  }
+
+  & div{
+    margin-right: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    & div {
+      margin-right: 0px;
+    }
+  }
+
+  & div:last-child{
+    margin-right: 0;
   }
 }
 
@@ -98,20 +127,21 @@ h1{
 
 
 .panel{
-  background-color: base.$fourth-color;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  border-top: 1px solid #414472;
+  // border-top: 1px solid #414472;
 }
 
 .panel-item{
   @extend %block;
   border-bottom: 1px solid base.$five-color;
+  background-color: base.$fourth-color;
 }
 
-.panel-item:last-child{
+.panel-item:nth-child(2){
   border: 0;
+  border-radius: 0 0 4px 4px;
 }
 
 .arrow:after{
@@ -271,10 +301,9 @@ h1{
 }
 
 .paypal-chackout{
-  // position: absolute;
+  position: absolute;
   display: block;
   width: 80%;
-  // max-width: ;
   color: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -282,7 +311,7 @@ h1{
   border: 0;
   font-size: 15px;
   font-weight: bold;
-  margin:0 auto;
-  margin-top: 33px;
   cursor: pointer;
+  top: (base.$item-height - 38px) / 2;
+  left: (100% - 80%) / 2;
 }

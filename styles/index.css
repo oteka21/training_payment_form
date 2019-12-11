@@ -26,10 +26,10 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #1E203E;
+  background: #181A3E;
   position: relative;
   box-sizing: border-box;
-  border: 1px solid #292C52;
+  border: 1px solid #252852;
   margin-right: 20px;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .radio-container input:checked ~ .checkmark {
-  background: #62AAAA;
+  background: #13C1C0;
 }
 
 .radio-container input:checked ~ .checkmark:after {
@@ -85,11 +85,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 body {
   font-family: Lato, system-ui;
-  background: #1E203E;
+  background: #181A3E;
 }
 
 h1 {
-  color: #62AAAA;
+  color: #13C1C0;
   text-align: center;
   font-size: 25px;
 }
@@ -100,16 +100,30 @@ h1 {
   position: relative;
 }
 
-.container {
+.main-container {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 8% auto;
+}
+
+.container {
+  width: 100%;
   border-radius: 3px;
 }
 
 .item {
-  background: #242649;
-  border-bottom: 1px solid #292C52;
+  background: #1F2248;
+  border-bottom: 1px solid #252852;
+  cursor: pointer;
+}
+
+.item:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.last-item {
+  border-bottom: 0;
+  border-radius: 0 0 4px 4px;
 }
 
 .form-label {
@@ -130,9 +144,21 @@ h1 {
   right: 20px;
 }
 .image img {
+  display: inline-block;
   width: 30px;
   height: 100%;
   object-fit: cover;
+}
+.image div {
+  margin-right: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .image div {
+    margin-right: 0px;
+  }
+}
+.image div:last-child {
+  margin-right: 0;
 }
 
 .visa {
@@ -156,19 +182,19 @@ h1 {
 }
 
 .panel {
-  background-color: #292C52;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  border-top: 1px solid #414472;
 }
 
 .panel-item {
   border-bottom: 1px solid #3F426E;
+  background-color: #252852;
 }
 
-.panel-item:last-child {
+.panel-item:nth-child(2) {
   border: 0;
+  border-radius: 0 0 4px 4px;
 }
 
 .arrow:after {
@@ -181,7 +207,7 @@ h1 {
   z-index: 2;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #242649;
+  border-top: 8px solid #1F2248;
 }
 
 .card-number-input {
@@ -278,7 +304,7 @@ h1 {
   font-size: 15px;
   font-weight: 700;
   color: #fff;
-  background: #62AAAA !important;
+  background: #13C1C0 !important;
   border: 0;
   border-radius: 4px;
   cursor: pointer;
@@ -290,7 +316,7 @@ h1 {
 }
 
 .modal-content {
-  background: #292C52 !important;
+  background: #252852 !important;
 }
 
 .modal-text {
@@ -302,7 +328,7 @@ h1 {
 }
 
 .exclamation {
-  fill: #62AAAA;
+  fill: #13C1C0;
   width: 16px;
   position: absolute;
   top: 30px;
@@ -311,6 +337,7 @@ h1 {
 }
 
 .paypal-chackout {
+  position: absolute;
   display: block;
   width: 80%;
   color: #fff;
@@ -320,9 +347,9 @@ h1 {
   border: 0;
   font-size: 15px;
   font-weight: bold;
-  margin: 0 auto;
-  margin-top: 33px;
   cursor: pointer;
+  top: 21px;
+  left: 10%;
 }
 
 /*# sourceMappingURL=index.css.map */

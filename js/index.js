@@ -1,8 +1,12 @@
-const elements = document.querySelectorAll('input[type=radio]')
+const elements = document.querySelectorAll('.item')
+const radios = document.querySelectorAll('input[type=radio]')
 
 function hidePanels(){
   Array.from(elements).forEach(item =>{
-    const panel = item.parentNode.parentNode
+    const panel = item
+    if(panel.id === 'card-item-toggle-border'){
+      panel.classList.add('last-item')
+    }
     panel.classList.remove('arrow')
     const nextPanel = panel.nextElementSibling
     nextPanel.style.maxHeight = null
@@ -18,13 +22,40 @@ function togglePayButton(value){
   }
 }
 
-Array.from(elements).forEach(item => {
+Array.from(radios).forEach(item => {
   item.addEventListener('change', (e)=> {
     const { target: { value } } = e
     togglePayButton(value)
     hidePanels()
     const panel = item.parentNode.parentNode
     panel.classList.add('arrow')
+    if(panel.id === 'card-item-toggle-border'){
+      panel.classList.remove('last-item')
+    }
+    panel.classList.add('arrow')
+    const nextPanel = panel.nextElementSibling
+    if (nextPanel.style.maxHeight) {
+      nextPanel.style.maxHeight = null
+    } else {
+      nextPanel.style.maxHeight = nextPanel.scrollHeight + "px"
+    }
+  })
+
+})
+
+
+Array.from(elements).forEach(item => {
+  item.addEventListener('click', (e)=> {
+    const radio = item.querySelector('input')
+    radio.checked = 'checked'
+    const {value} = radio
+    togglePayButton(value)
+    hidePanels()
+    const panel = item
+    panel.classList.add('arrow')
+    if(panel.id === 'card-item-toggle-border'){
+      panel.classList.remove('last-item')
+    }
     const nextPanel = panel.nextElementSibling
     if (nextPanel.style.maxHeight) {
       nextPanel.style.maxHeight = null
