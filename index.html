@@ -9,7 +9,7 @@
 </head>
 <body>
   <h1>Great that's £124.97!</h1>
-  <form class="container" action="#">
+  <form class="container" action="#" id="form-payment">
     <div class="item">
       <label class="radio-container">
         <input type="radio" name="radio">
@@ -21,7 +21,7 @@
     </div>
     <div class="panel">
       <div class="panel-item">
-        hola
+       
       </div>
     </div>
     <div class="item">
@@ -30,20 +30,36 @@
         <span class="checkmark" data-text="Debit/credit card"></span>
       </label>
       <div class="image">
-        <div class="visa credit-card" ></div>
+        <div class="visa credit-card"></div>
         <div class="master-card credit-card" /></div>
         <div class="master-card credit-card ame-express" /></div>
       </div>
     </div>
     <div class="panel">
         <div class="panel-item">
-          hola
-        </div>
-        <div class="panel-item">
-          hola
+        <label class="card-number-input">
+          <span>Card number</span>
+          <input type="text" placeholder="4111 1111 1111 1111" pattern="[0-9]*" inputmode="numeric" id="credit-card-number" />
+        </label>
+      </div>
+      <div class="panel-item">
+        <label class="card-expire">
+          <span>Expiry</span>
+          <input type="text" placeholder="MM/YY" id="credit-card-expire" inputmode="numeric"/>
+        </label>
+        <label class="card-cvc">
+          <span>CVC</span>
+          <input type="text" placeholder="023" id="credit-card-cvc" inputmode="numeric"/>
+        </label>
         </div>
     </div>
   </form>
+  <button type="submit" form="form-payment" class="pay-button">
+    <svg class="padlock" viewBox="0 0 100 100">
+        <use xlink:href="./images/lock.svg#Layer_1"></use>
+    </svg>
+    Finish and pay</button>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="./js/index.js"></script>
 </body>
 </html>
