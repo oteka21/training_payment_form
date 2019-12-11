@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./styles/index.css" type="text/css">
+  <link rel="icon" type="image/png" href="./images/favicon.png">
   <title>Payment</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
   <form class="container" action="#" id="form-payment">
     <div class="item">
       <label class="radio-container">
-        <input type="radio" name="payment-method" value="paypal" id='radio-payment'>
+        <input type="radio" name="payment-method" value="paypal">
         <span class="checkmark" data-text="PayPal"></span>
       </label>
       <div class="image">
@@ -26,30 +27,30 @@
     </div>
     <div class="item">
       <label class="radio-container">
-        <input type="radio" name="payment-method" value='credit' id='radio-payment' >
+        <input type="radio" name="payment-method" value='credit' >
         <span class="checkmark" data-text="Debit/credit card"></span>
       </label>
       <div class="image">
         <div class="visa credit-card"></div>
-        <div class="master-card credit-card" /></div>
-        <div class="master-card credit-card ame-express" /></div>
+        <div class="master-card credit-card"></div>
+        <div class="master-card credit-card ame-express"></div>
       </div>
     </div>
     <div class="panel">
-        <div class="panel-item">
-        <label class="card-number-input">
-          <span>Card number</span>
-          <input type="text" placeholder="4111 1111 1111 1111" pattern="[0-9]*" inputmode="numeric" id="credit-card-number" />
-        </label>
+      <div class="panel-item">
+      <label class="card-number-input">
+        <span>Card number</span>
+        <input type="number" placeholder="4111 1111 1111 1111" id="credit-card-number" />
+      </label>
       </div>
       <div class="panel-item">
         <label class="card-expire">
           <span>Expiry</span>
-          <input type="text" placeholder="MM/YY" id="credit-card-expire" inputmode="numeric"/>
+          <input type="text" placeholder="MM/YY" id="credit-card-expire" />
         </label>
         <label class="card-cvc">
           <span>CVC</span>
-          <input type="text" placeholder="023" id="credit-card-cvc" inputmode="numeric"/>
+          <input type="number" placeholder="023" id="credit-card-cvc" />
         </label>
         <svg class="exclamation" viewBox="0 0 100 100">
           <use xlink:href="./images/exclamation.svg#Capa_1"></use>
@@ -59,7 +60,7 @@
   </form>
   <button type="submit" form="form-payment" class="pay-button">
     <svg class="padlock" viewBox="0 0 100 100">
-        <use xlink:href="./images/lock.svg#Layer_1"></use>
+      <use xlink:href="./images/lock.svg#Layer_1"></use>
     </svg>
     Finish and pay</button>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

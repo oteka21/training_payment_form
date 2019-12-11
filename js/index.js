@@ -119,6 +119,8 @@ payForm.addEventListener('submit', (e) => {
       // cvc.focus()
       return
     }
+
+    Swal.fire({...modalconfig, title: "Success", icon: "success"})
   }
 })
 
