@@ -9,13 +9,23 @@ function hidePanels(){
   })
 }
 
+function togglePayButton(value){
+  const submitButton = document.querySelector('.pay-button')
+  if (value === 'paypal'){
+    submitButton.style.display = 'none';
+  }else{
+    submitButton.style.display = 'block';
+  }
+}
+
 Array.from(elements).forEach(item => {
-  item.addEventListener('change', ()=> {
+  item.addEventListener('change', (e)=> {
+    const { target: { value } } = e
+    togglePayButton(value)
     hidePanels()
     const panel = item.parentNode.parentNode
     panel.classList.add('arrow')
     const nextPanel = panel.nextElementSibling
-    console.log(nextPanel.innerHTML)
     if (nextPanel.style.maxHeight) {
       nextPanel.style.maxHeight = null
     } else {
@@ -28,17 +38,11 @@ Array.from(elements).forEach(item => {
 const number = document.querySelector('#credit-card-number')
 const expire = document.querySelector('#credit-card-expire')
 const cvc = document.querySelector('#credit-card-cvc')
+const payForm = document.querySelector('#form-payment')
+const infoButton = document.querySelector('.exclamation')
 
+infoButton.addEventListener('click', () => Swal.fire({...modalconfig, title: "By accessing with your credit card you accept terms and conditions.", icon: false}))
 
-// function validateNumber(value, event){
-  
-// }
-// number.addEventListener('keypress',(e) => {
-//   const {target: { value } } = e
-//   const myRegex = new RegExp(/^[0-9]*$/)
-//   console.log(myRegex.test(value))
-//   console.log(value)
-// })
 
 function setInputFilter(textbox, inputFilter) {
   textbox.addEventListener('input', function() {
@@ -56,7 +60,7 @@ function setInputFilter(textbox, inputFilter) {
 }
 
 setInputFilter(number, function(value) {
-  return /^[0-9]*$/.test(value) 
+  return /^4?[0-9]{0,12}(?:[0-9]{0,3})?$|^3?[47][0-9]{0,13}$|^5?[1-5][0-9]{0,14}$/.test(value) 
 })
 
 setInputFilter(expire, function(value) {
@@ -76,19 +80,45 @@ const modalconfig = {
     popup: 'modal-content',
     title: 'modal-text',
     footer: 'modal-footer',
-  },
-  footer: 'Please enter a valid credit card!'
+  }
 }
 
-const payForm = document.querySelector('#form-payment')
 const showModal = (valid, title, resume) => valid ? false :  Swal.fire({...modalconfig, footer: resume, title})
 
 const validateEntry = (regex, value) => regex.test(value)
 
 payForm.addEventListener('submit', (e) => {
   e.preventDefault()
+  const formData = new FormData(payForm);
+  
+  const paymentMethod = formData.get('payment-method')
   const validNumber = validateEntry(/^4[0-9]{12}(?:[0-9]{3})?$|^3[47][0-9]{13}$|^5[1-5][0-9]{14}$/, number.value)
-  const validExpiry = validateEntry(/^[0-9]{2}\/[0-9]{2}$/, number.value)
-  showModal(validNumber, 'Card number is invalid', 'please enter a valid credit card!')
-  showModal(validExpiry, 'Date of expire is invalid', 'please enter a valid date of expire as (12/24)!')
+  const validExpiry = validateEntry(/^[0-9]{2}\/[0-9]{2}$/, expire.value)
+  const validCvc = validateEntry(/^[0-9]{3}$/, cvc.value)
+
+  if (!paymentMethod){
+    Swal.fire({...modalconfig, title: 'Please select a payment method!', icon: 'warning'})
+    return 
+  }
+
+  if(paymentMethod === 'credit'){
+    if (!validNumber){
+      showModal(validNumber, 'Card number is invalid', 'please enter a valid credit card!')
+      // number.focus()
+      return 
+    }
+
+    if (!validExpiry){
+      showModal(validExpiry, 'Date of expire is invalid', 'please enter a valid date of expire as (12/24)!')
+      // expire.focus()
+      return 
+    }
+
+    if (!validCvc){
+      showModal(validCvc, 'cvc number is invalid', 'the cv must have at least 3 numbers')
+      // cvc.focus()
+      return
+    }
+  }
 })
+
