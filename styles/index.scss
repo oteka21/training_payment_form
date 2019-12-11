@@ -1,0 +1,288 @@
+@use 'radio';
+@use 'base';
+
+
+*, span, input{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+body{
+  font-family: base.$font-stack;
+  background: base.$secondary-color;
+}
+
+h1{
+  color: base.$primary-color;
+  text-align:  center;
+  font-size: 25px;
+}
+
+%block {
+  width: 100%;
+  height: base.$item-height;
+  position: relative;
+}
+.container{
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.item{
+  @extend %block;
+  background: base.$tertiary-color;
+  border-bottom: 1px solid base.$fourth-color;
+}
+
+.form-label{
+  display: inline-block;
+  position: relative;
+  height: 15px;
+  top: (base.$item-height - 15px) / 2 ;
+  left: 20px;
+  color: #fff;
+}
+
+.image{
+  height: 20px;
+  margin-left: auto;
+  display: inline-block;
+  position: absolute;
+  top: (base.$item-height - 20px) / 2 ;
+  right: 20px;
+
+  & img{
+    width: 30px;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.visa{
+  background: url('../images/credit-card.jpg') 0 0;
+}
+
+.master-card{
+  background: url('../images/credit-card.jpg') -30px 0;
+}
+
+.ame-express{
+  background: url('../images/credit-card.jpg') -60px 0;
+}
+.credit-card{
+    background-repeat: no-repeat;
+    background-size: 120px 20px;
+    width: 30px;
+    height: 100%;
+    display: inline-block;
+}
+
+
+.panel{
+  background-color: base.$fourth-color;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-top: 1px solid #414472;
+}
+
+.panel-item{
+  @extend %block;
+  border-bottom: 1px solid base.$five-color;
+}
+
+.panel-item:last-child{
+  border: 0;
+}
+
+.arrow:after{
+  content: "";
+  width: 0;
+  height: 0; 
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  z-index: 2;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid base.$tertiary-color;
+}
+
+.card-number-input{
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: (base.$item-height - 30px) / 2;
+  margin-left: 20px;
+
+
+  & span {
+    // font-weight: 200;
+    margin-right: 0px;
+    color: #fff;
+    opacity: .3;
+  }
+
+  & input {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 30px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    & input {
+      margin-left: 10px;
+    }
+  }
+
+
+  & input::placeholder{
+    color: #fff;
+    opacity: .1;
+  }
+}
+
+.card-expire{
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: (base.$item-height - 30px) / 2;
+  margin-left: 20px;
+
+
+  & span {
+    // font-weight: 200;
+    color: #fff;
+    margin-right: 20px;
+    opacity: .3;
+  }
+
+  & input {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    width: 60px;
+    font-size: 16px;
+  }
+
+
+  & input::placeholder{
+    color: #fff;
+    opacity: .1;
+  }
+}
+
+.card-cvc{
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: (base.$item-height - 30px) / 2;
+  margin-left: 230px;
+  
+  @media only screen and (max-width: 600px) {
+    margin-left: 170px;
+  }
+
+  & span {
+    margin-right: 20px;
+    color: #fff;
+    opacity: .3;
+  }
+
+
+  & input {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    width: 60px;
+    font-size: 16px;
+  }
+
+
+  & input::placeholder{
+    color: #fff;
+    opacity: .1;
+  }
+}
+
+.pay-button{
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 20px auto;
+  padding: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: base.$primary-color !important;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  .padlock{
+    fill: #fff;
+    width: 16px;
+    margin-right: 6px;
+  }
+}
+
+.modal-content{
+  background: base.$fourth-color !important;
+}
+
+.modal-text{
+  color: #fff !important;
+}
+.modal-footer{
+  color: #fff !important;
+}
+
+.exclamation{
+  fill: base.$primary-color;
+  width: 16px;
+  position: absolute;
+  top: (base.$item-height - 20px) / 2;
+  right: 20px;
+  cursor: pointer;
+}
+
+.paypal-chackout{
+  // position: absolute;
+  display: block;
+  width: 80%;
+  // max-width: ;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  background: #EABE47;
+  border: 0;
+  font-size: 15px;
+  font-weight: bold;
+  margin:0 auto;
+  margin-top: 33px;
+  cursor: pointer;
+}

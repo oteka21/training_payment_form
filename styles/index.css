@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i&display=swap");
+/* The container */
+.radio-container {
+  display: block;
+  cursor: pointer;
+  font-size: 15px;
+  height: 20px;
+  position: relative;
+  color: #fff;
+  box-sizing: border-box;
+  position: absolute;
+  top: 27.5px;
+  left: 20px;
+}
+.radio-container input {
+  display: none;
+}
+.radio-container .text {
+  border: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1E203E;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #292C52;
+  margin-right: 20px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  top: 4px;
+  left: 4px;
+  display: none;
+}
+
+.checkmark:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 150px;
+}
+
+.radio-container input:checked ~ .checkmark {
+  background: #62AAAA;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+*, span, input {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+  font-family: Lato, system-ui;
+  background: #1E203E;
+}
+
+h1 {
+  color: #62AAAA;
+  text-align: center;
+  font-size: 25px;
+}
+
+.panel-item, .item {
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.item {
+  background: #242649;
+  border-bottom: 1px solid #292C52;
+}
+
+.form-label {
+  display: inline-block;
+  position: relative;
+  height: 15px;
+  top: 32.5px;
+  left: 20px;
+  color: #fff;
+}
+
+.image {
+  height: 20px;
+  margin-left: auto;
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+.image img {
+  width: 30px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visa {
+  background: url("../images/credit-card.jpg") 0 0;
+}
+
+.master-card {
+  background: url("../images/credit-card.jpg") -30px 0;
+}
+
+.ame-express {
+  background: url("../images/credit-card.jpg") -60px 0;
+}
+
+.credit-card {
+  background-repeat: no-repeat;
+  background-size: 120px 20px;
+  width: 30px;
+  height: 100%;
+  display: inline-block;
+}
+
+.panel {
+  background-color: #292C52;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-top: 1px solid #414472;
+}
+
+.panel-item {
+  border-bottom: 1px solid #3F426E;
+}
+
+.panel-item:last-child {
+  border: 0;
+}
+
+.arrow:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  z-index: 2;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #242649;
+}
+
+.card-number-input {
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: 25px;
+  margin-left: 20px;
+}
+.card-number-input span {
+  margin-right: 0px;
+  color: #fff;
+  opacity: 0.3;
+}
+.card-number-input input {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 30px;
+}
+@media only screen and (max-width: 600px) {
+  .card-number-input input {
+    margin-left: 10px;
+  }
+}
+.card-number-input input::placeholder {
+  color: #fff;
+  opacity: 0.1;
+}
+
+.card-expire {
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: 25px;
+  margin-left: 20px;
+}
+.card-expire span {
+  color: #fff;
+  margin-right: 20px;
+  opacity: 0.3;
+}
+.card-expire input {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  width: 60px;
+  font-size: 16px;
+}
+.card-expire input::placeholder {
+  color: #fff;
+  opacity: 0.1;
+}
+
+.card-cvc {
+  position: absolute;
+  height: 30px;
+  display: block;
+  top: 25px;
+  margin-left: 230px;
+}
+@media only screen and (max-width: 600px) {
+  .card-cvc {
+    margin-left: 170px;
+  }
+}
+.card-cvc span {
+  margin-right: 20px;
+  color: #fff;
+  opacity: 0.3;
+}
+.card-cvc input {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  width: 60px;
+  font-size: 16px;
+}
+.card-cvc input::placeholder {
+  color: #fff;
+  opacity: 0.1;
+}
+
+.pay-button {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 20px auto;
+  padding: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: #62AAAA !important;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pay-button .padlock {
+  fill: #fff;
+  width: 16px;
+  margin-right: 6px;
+}
+
+.modal-content {
+  background: #292C52 !important;
+}
+
+.modal-text {
+  color: #fff !important;
+}
+
+.modal-footer {
+  color: #fff !important;
+}
+
+.exclamation {
+  fill: #62AAAA;
+  width: 16px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.paypal-chackout {
+  display: block;
+  width: 80%;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  background: #EABE47;
+  border: 0;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 33px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */

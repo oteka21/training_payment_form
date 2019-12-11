@@ -1,0 +1,70 @@
+@use 'base';
+$dot-dimensions: 20px;
+
+/* The container */
+.radio-container {
+  display: block;
+  cursor: pointer;
+  font-size: 15px;
+  height: 20px;
+  position: relative;
+  color: #fff;
+  box-sizing: border-box;
+  position: absolute;
+  top: (base.$item-height - 25px) / 2;
+  left: 20px;
+
+  & input {
+    display: none;
+  }
+
+  & .text{
+    border: 0;
+    margin: 0;
+    display: inline-block;
+  }
+}
+
+
+.checkmark{
+  display: inline-block;
+  width: $dot-dimensions;
+  height: $dot-dimensions;
+  border-radius: 50%;
+  background: base.$secondary-color;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid base.$fourth-color;
+  margin-right: 20px;
+}
+
+.checkmark:after{
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: $dot-dimensions / 2;
+  height: $dot-dimensions / 2;
+  top: ($dot-dimensions - ($dot-dimensions / 2)) / 2 - 1px;
+  left: ($dot-dimensions - ($dot-dimensions / 2)) / 2 - 1px;
+  display: none;
+}
+
+.checkmark:before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 20px * 2;
+  width: 150px;
+}
+
+.radio-container input:checked ~ .checkmark{
+  // border: 0;
+  background: base.$primary-color;
+}
+
+.radio-container input:checked ~ .checkmark:after{
+  display: block;
+}
+
