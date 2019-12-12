@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
   <link rel="stylesheet" href="./styles/index.css" type="text/css">
   <link rel="icon" type="image/png" href="./images/favicon.png">
   <title>Payment</title>
@@ -41,7 +42,7 @@
         <div class="panel-item">
         <label class="card-number-input">
           <span>Card number</span>
-          <input type="number" placeholder="4111 1111 1111 1111" id="credit-card-number" />
+          <input type="text" placeholder="4111 1111 1111 1111" id="credit-card-number" />
         </label>
         </div>
         <div class="panel-item last-item">
@@ -53,19 +54,16 @@
             <span>CVC</span>
             <input type="number" placeholder="023" id="credit-card-cvc" />
           </label>
-          <svg class="exclamation" viewBox="0 0 100 100">
-            <use xlink:href="./images/exclamation.svg#Capa_1"></use>
-          </svg>
+          <span class="icon-exclamation exclamation"></span>
           </div>
       </div>
     </form>
     <button type="submit" form="form-payment" class="pay-button">
-      <svg class="padlock" viewBox="0 0 100 100">
-        <use xlink:href="./images/lock.svg#Layer_1"></use>
-      </svg>
+      <span class="icon-lock"></span>
       Finish and pay</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" integrity="sha256-/9af5HY43atNLQYyCLy6EeTvHu0ntBAd4Yyaw6tVh/c=" crossorigin="anonymous"></script>
   <script src="./js/index.js"></script>
 </body>
 </html>

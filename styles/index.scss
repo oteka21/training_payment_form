@@ -18,6 +18,21 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+input:-ms-input-placeholder{
+  color: #fff;
+  opacity: .1;
+}
+
+input::-ms-input-placeholder{
+  color: #fff;
+  opacity: .1;
+}
+
+input::placeholder{
+  color: #fff;
+  opacity: .1;
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -179,18 +194,14 @@ h1{
     display: inline-block;
     font-size: 16px;
     margin-left: 30px;
+    width: 200px;
   }
 
   @media only screen and (max-width: 600px) {
     & input {
       margin-left: 10px;
+      width: 170px;
     }
-  }
-
-
-  & input::placeholder{
-    color: #fff;
-    opacity: .1;
   }
 }
 
@@ -271,7 +282,9 @@ h1{
   background: base.$primary-color !important;
   border: 0;
   border-radius: 4px;
+  height: 70px;
   cursor: pointer;
+
 
   .padlock{
     fill: #fff;
@@ -292,7 +305,7 @@ h1{
 }
 
 .exclamation{
-  fill: base.$primary-color;
+  color: base.$primary-color;
   width: 16px;
   position: absolute;
   top: (base.$item-height - 20px) / 2;
@@ -314,4 +327,40 @@ h1{
   cursor: pointer;
   top: (base.$item-height - 38px) / 2;
   left: (100% - 80%) / 2;
+}
+
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?tiaxdc');
+  src:  url('../fonts/icomoon.eot?tiaxdc#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?tiaxdc') format('truetype'),
+    url('../fonts/icomoon.woff?tiaxdc') format('woff'),
+    url('../fonts/icomoon.svg?tiaxdc#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-exclamation:before {
+  content: "\e901";
+}
+.icon-lock:before {
+  content: "\e900";
 }

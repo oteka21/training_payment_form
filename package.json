@@ -2,11 +2,17 @@
   "name": "payment_form",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/babel js/input/index.js --out-dir js && sass styles/index.scss styles/index.css"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.7.5",
+    "@babel/core": "7.7.5",
+    "@babel/polyfill": "7.7.0",
+    "@babel/preset-env": "7.7.6"
+  }
 }

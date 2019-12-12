@@ -1,8 +1,8 @@
 ## Payment vanilla form 
 
-to run sass styles run the next script in terminal
+yo generate required files 
 
 ```bash
-  $sass --watch styles/index.scss styles/index.css 
+  npm run build
 ```
 
